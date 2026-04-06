@@ -1,48 +1,105 @@
-# CARA SETUP WEBSITE PERPUSTAKAAN DIGITAL
+# Website Perpustakaan Digital
+
+Panduan lengkap untuk menjalankan project perpustakaan digital di komputer lokal menggunakan XAMPP.
 
 ---
 
-- Download <a href="https://www.apachefriends.org/download.html"> xampp </a> terlebih dahulu, setelah download install seperti biasa.
+## Prasyarat
 
-- Jika sudah download dan install, download repository code ini lalu masukkan ke dalam folder htdocs:
-    C:/xampp/htdocs/(masukkan folder code).
+Sebelum memulai, pastikan kamu sudah mengunduh dan menginstall **XAMPP**:
 
-- Buka folder perpus di VS Code, lalu nyalakan xampp nya. Nyalakan bagian Apache dan MySQL.
+> [Download XAMPP di sini](https://www.apachefriends.org/download.html) — install seperti biasa setelah download selesai.
 
-- Buka folder config, disitu ada database.php, pada bagian DB_NAME samakan nama databasenya dengan yang nanti akan di buat.
+---
 
-- Masuk ke phpmyadmin dengan menekan tombol admin pada pada xampp MySQL.
+## Langkah-Langkah Setup
 
-    <img src="tutorial/xampp-admin.png">
+### 1. Letakkan Folder Project
 
-- Nanti akan masuk kedalam website phpmyadmin, lalu pada website ini tekan +baru di bagian kiri web, lalu isi nama Database nya dan samakan dengan yang ada pada database.php lalu klik buat.
+Download repository ini, lalu masukkan folder project ke dalam direktori `htdocs` milik XAMPP:
 
-    <img src="tutorial/phpmyadmin.png">
-    <img src="tutorial/database.png">
+```
+C:/xampp/htdocs/(nama-folder-project)
+```
 
-    note: kamu dapat mengubah nama databasenya sesuai keinginanmu.
+---
 
-- Setelah database sudah terbuat pada phpmyadmin, pergi ke tab SQL, tombolnya berada di bagian atas, lalu pada bagian SQL tersebut paste semua code yang ada pada file perpustakaan.sql, setelah itu tekan kirim yang ada di bagian bawah.
+### 2. Jalankan XAMPP
 
-    <img src="tutorial/sql.png">
+Buka folder project di **VS Code**, lalu jalankan XAMPP. Pastikan kedua modul berikut sudah aktif (berstatus **Running**):
 
-- Database dan data sudah terisi semua, lalu sekarang tinggal menjalankan website nya.
+- **Apache**
+- **MySQL**
 
-```sh
-# Cari ini pada browser yang kamu gunakan:
+---
 
+### 3. Konfigurasi Database
+
+Buka file konfigurasi database yang ada di:
+
+```
+config/database.php
+```
+
+Pastikan nilai `DB_NAME` sesuai dengan nama database yang akan kamu buat di langkah berikutnya.
+
+> Kamu bisa mengubah nama database sesuai keinginanmu.
+
+---
+
+### 4. Buat Database di phpMyAdmin
+
+Masuk ke **phpMyAdmin** dengan menekan tombol **Admin** pada bagian MySQL di XAMPP:
+
+![Tampilan XAMPP Admin](tutorial/xampp-admin.png)
+
+Setelah masuk ke phpMyAdmin, ikuti langkah berikut:
+
+1. Klik **`+ Baru`** di panel kiri
+2. Isi nama database — samakan dengan `DB_NAME` di `database.php`
+3. Klik **Buat**
+
+![Halaman phpMyAdmin](tutorial/phpmyadmin.png)
+![Form Buat Database](tutorial/database.png)
+
+---
+
+### 5. Import File SQL
+
+Setelah database berhasil dibuat:
+
+1. Pergi ke tab **SQL** (tombol ada di bagian atas halaman)
+2. *Paste* seluruh isi file `perpustakaan.sql` ke dalam kolom yang tersedia
+3. Klik **Kirim** di bagian bawah
+
+![Tab SQL phpMyAdmin](tutorial/sql.png)
+
+Database dan seluruh datanya kini sudah terisi.
+
+---
+
+### 6. Jalankan Setup Website
+
+Buka browser dan akses URL berikut:
+
+```
 localhost/(nama-folder)/setup.php
 ```
-Nanti akan muncul tampilan website yang isinya ada Username dan Password untuk admin, kamu bisa login dengan akun admin ini, atau bisa juga untuk membuat akun user biasa.
 
-<img src="tutorial/setup.png">
+Akan muncul halaman setup yang menampilkan **Username** dan **Password** akun admin. Kamu bisa login menggunakan akun admin tersebut, atau membuat akun user biasa terlebih dahulu.
 
-setelah muncul tampilan ini, kamu bisa langsung login dengan menekan "Pergi ke halamn Login".
+![Halaman Setup](tutorial/setup.png)
 
-- Untuk mengakses website utamanya kamu cari ini di browser
+Setelah halaman ini muncul, klik **"Pergi ke halaman Login"** untuk langsung masuk.
 
-```sh
+---
+
+### 7. Akses Website Utama
+
+Untuk membuka halaman utama website perpustakaan, akses URL berikut di browser:
+
+```
 localhost/(nama-folder)/index.php
 ```
 
-<img src="tutorial/preview.png">
+![Preview Website](tutorial/preview.png)
